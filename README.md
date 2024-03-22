@@ -1,7 +1,7 @@
 # Deploy .Net 8 web application in **Azure** - with Docker Swarm Architecture
 
 **Note:** This repository contains code which can act a template in build and deploying the application in Azure set up as discussed with the architecture in my blog \
-**Reference blog:** 
+**Reference blog:** https://medium.com/@devopswithyoge/docker-swarm-basics-and-how-to-use-it-with-github-actions-ci-cd-in-azure-cloud-iaas-and-paas-8be800da60d0
 
 **Pipelines**
 1. application-build: containerzise the .Net MVC application and publish it in Azure COntainer registry
