@@ -1,0 +1,29 @@
+name: Application Deploy
+on:
+  pull_request:
+     branches:
+       - main
+  push:
+     branches:
+       - main
+  workflow_dispatch:
+
+env:
+   CONTAINER_REGISTRY_URL: ${{secrets.CONTAINER_REGISTRY_URL}}
+
+jobs:
+  Deploy-App:
+    name: deploy-application
+    runs-on: self-hosted
+    steps:
+      - name: Azure Container Registry login
+        uses: Azure/docker-login@v1
+        with:
+          login-server: ${{ env.CONTAINER_REGISTRY_URL }}
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+        
+      - name: Pull Image and deploy in swarm
+        run: |
+            docker pull ${{ env.CONTAINER_REGISTRY_URL }}/mvc-app:latest
+            docker service create --replicas 3 --name mvc-webapp --publish 80:80 ${{ env.CONTAINER_REGISTRY_URL }}/mvc-app:latest
