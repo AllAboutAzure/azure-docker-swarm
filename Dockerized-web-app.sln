@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dockerized-web-app", "Dockerized-web-app\Dockerized-web-app.csproj", "{2A0ADDCE-7374-4F73-AC2B-FA9BBA0EE771}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dockerized-web-app", "Dockerized-web-app\Dockerized-web-app.csproj", "{2A0ADDCE-7374-4F73-AC2B-FA9BBA0EE771}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{6DFF8DD0-967A-4B61-B791-20E3BC34D4D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{1BB7C3A9-3E60-4ECB-84C1-7070F0C8D603}"
+	ProjectSection(SolutionItems) = preProject
+		application-build.yml = application-build.yml
+		application-deploy.yml = application-deploy.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,6 +26,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1BB7C3A9-3E60-4ECB-84C1-7070F0C8D603} = {6DFF8DD0-967A-4B61-B791-20E3BC34D4D2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E3557592-E09D-4938-AF9B-BB60E9E9F635}
