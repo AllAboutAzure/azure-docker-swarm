@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Dockerized-web-app/obj
+/Dockerized-web-app/Dockerized-web-app.csproj.user
