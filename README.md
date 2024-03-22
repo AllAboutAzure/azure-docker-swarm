@@ -20,10 +20,10 @@ This two pipelines act as templates;\
 2. Add docker file to containerize the application and build a image
 
 **Infra Setup:**
-Azure container registry
-Azure VM and Vnet (single vnet as overlay network)
-Configure github runner to the master node in vm 
-Can configure private DNS resolved for the master node so that it will be user friendly and can include certificates for secure connect
+- Azure container registry
+- Azure VM and Vnet (single vnet as overlay network)
+- Configure github runner to the master node in vm 
+- Can configure private DNS resolved for the master node so that it will be user friendly and can include certificates for secure connect\
 
 **for pipeline3:**
-Create ACI and set up a Private DNS for the ACI IP.
+- Create ACI and set up a Private DNS for the ACI IP.
