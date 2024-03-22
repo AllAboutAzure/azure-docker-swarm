@@ -1,5 +1,13 @@
-on: [push]
 name: Build and Deploy in Azure Container Instances
+on:
+  pull_request:
+     branches:
+       - main
+  push:
+     branches:
+       - main
+  workflow_dispatch:
+
 jobs:
     build-and-deploy:
         runs-on: ubuntu-latest
