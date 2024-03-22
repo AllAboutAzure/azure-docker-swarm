@@ -1,0 +1,33 @@
+name: Application build
+on:
+  pull_request:
+     branches:
+       - main
+  push:
+     branches:
+       - main
+  workflow_dispatch:
+
+env:
+   CONTAINER_REGISTRY_URL: ${{secrets.CONTAINER_REGISTRY_URL}}
+
+jobs:
+  Build-App:
+    name: build-application
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Build the Docker image
+      working-directory: Dockerized-web-app/
+      run: docker build . -t ${{ env.CONTAINER_REGISTRY_URL }}/mvc-app:latest
+
+    - name: Login to ACR
+      uses: Azure/docker-login@v1
+      with:
+        login-server: ${{ env.CONTAINER_REGISTRY_URL }}
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+        
+    - name: Push image
+      run: docker push ${{ env.CONTAINER_REGISTRY_URL }}/mvc-app:latest
